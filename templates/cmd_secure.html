@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block title %}Secure{% endblock %}
+{% block content %}
+<h1 class="secure-title">Secure ping tool</h1>
+<p>Same payload (<code>127.0.0.1; whoami</code>) now fails: no shell is
+   invoked, the command runs as an argument vector, and the host is checked
+   against an allow-list before use.</p>
+
+<form method="post">
+  <label>Host <input type="text" name="host" placeholder="127.0.0.1" autocomplete="off"></label>
+  <button type="submit">Ping</button>
+</form>
+
+{% if error %}
+  <p class="err">{{ error }}</p>
+{% endif %}
+
+{% if output %}
+  <h3>Output:</h3>
+  <pre class="output">{{ output }}</pre>
+{% endif %}
+
+<p><a href="{{ url_for('cmd_vulnerable') }}">&larr; Switch to vulnerable version</a></p>
+<p><a href="{{ url_for('index') }}">&larr; Home</a></p>
+{% endblock %}

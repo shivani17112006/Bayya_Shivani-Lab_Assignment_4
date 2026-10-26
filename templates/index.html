@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block title %}Home{% endblock %}
+{% block content %}
+<h1>OS Command Injection — In-band</h1>
+<p>A small "ping" utility implemented two ways: a vulnerable version (for the
+   exploit demo) and a secure version (the mitigated fix). Use the same host
+   payload on both and compare behaviour.</p>
+
+<div class="grid">
+  <section class="card">
+    <a class="btn vuln" href="{{ url_for('cmd_vulnerable') }}">Vulnerable ping tool</a>
+    <a class="btn secure" href="{{ url_for('cmd_secure') }}">Secure ping tool</a>
+  </section>
+</div>
+{% endblock %}

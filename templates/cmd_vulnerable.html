@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block title %}Vulnerable{% endblock %}
+{% block content %}
+<h1 class="vuln-title">Vulnerable ping tool</h1>
+<p>Host is concatenated into a shell command. Try:
+   <code>127.0.0.1; whoami</code> (or on Windows: <code>127.0.0.1 && whoami</code>)</p>
+
+<form method="post">
+  <label>Host <input type="text" name="host" placeholder="127.0.0.1" autocomplete="off"></label>
+  <button type="submit">Ping</button>
+</form>
+
+{% if command_shown %}
+  <h3>Command executed on the server:</h3>
+  <pre>{{ command_shown }}</pre>
+{% endif %}
+
+{% if output %}
+  <h3>Output:</h3>
+  <pre class="output">{{ output }}</pre>
+{% endif %}
+
+<p><a href="{{ url_for('cmd_secure') }}">Switch to secure version &rarr;</a></p>
+<p><a href="{{ url_for('index') }}">&larr; Home</a></p>
+{% endblock %}
