@@ -89,8 +89,7 @@ You only need to *explain* these, not implement them:
 
 ## Setup — VS Code (Windows)
 
-1. Unzip this project and open it: in VS Code, **File → Open Folder** and
-   select the `cmd-injection-assignment` folder.
+1. Create the `cmd-injection-assignment` Project.
 2. Open a terminal: **Terminal → New Terminal**. Make sure it's
    **PowerShell** (shown top-right of the terminal panel).
 3. Confirm Python is installed:
